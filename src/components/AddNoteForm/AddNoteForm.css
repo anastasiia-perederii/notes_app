@@ -11,14 +11,15 @@
 }
 
 .add-note-button {
-    padding: 8px 16px;
-    background-color: #4caf50;
+    padding: 10px 20px;
+    background-color: #4b7777;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
 }
 
 .add-note-button:hover {
-    background-color: #45a049;
+    background-color: #436a6a;
 }

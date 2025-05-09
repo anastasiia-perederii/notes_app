@@ -1,29 +1,37 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./AddNoteForm.css";
 
-export default function AddNoteForm({ onAdd }) {
+function AddNoteForm({ onAddNote }) {
   const [title, setTitle] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim()) {
-      onAdd(title);
+      const newNote = {
+        id: Date.now().toString(),
+        title,
+        date: new Date().toLocaleDateString(),
+        description: "",
+      };
+      onAddNote(newNote);
       setTitle("");
     }
   };
 
   return (
-    <form className="add-note-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-note-form">
       <input
         type="text"
-        placeholder="Enter note title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder="New note title"
         className="add-note-input"
       />
       <button type="submit" className="add-note-button">
-        Add Note
+        Add
       </button>
     </form>
   );
 }
+
+export default AddNoteForm;
