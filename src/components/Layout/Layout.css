@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.layout-header {
+    background: #436c6c;
+    color: aliceblue;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.layout-main {
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    padding: 24px;
+}

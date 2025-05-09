@@ -1,0 +1,24 @@
+.add-note-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.add-note-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.add-note-button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-note-button:hover {
+    background-color: #45a049;
+}

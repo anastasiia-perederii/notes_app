@@ -1,3 +1,13 @@
-import {Outlet, Link} from 'react-router-dom';
+import React from "react";
+import "../Layout/Layout.css";
 
-export default function Layout()
+function Layout({ children }) {
+  return (
+    <div className="layout">
+      <header className="layout-header">NoteBoard</header>
+      <main className="layout-main">{children}</main>
+    </div>
+  );
+}
+
+export default Layout;

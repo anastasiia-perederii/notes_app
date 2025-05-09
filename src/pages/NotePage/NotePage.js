@@ -1,24 +1,27 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router";
-import Layout from "../components/Layout/Layout";
-import NoteEditor from "../components/NoteEditor";
+import { useParams, useNavigate } from "react-router-dom";
+import Layout from "../../components/Layout/Layout";
+import "./NotePage.css";
 
-const NotePage = () => {
+function NotePage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const note = { id, title: "New Note", content: "" };
-
-  const handleSave = (updateNote) => {
-    console.log("Saved:", updateNote);
+  const handleBack = () => {
     navigate("/");
   };
 
   return (
     <Layout>
-      <NoteEditor note={note} onSave={handleSave} />
+      <div className="note-page">
+        <button className="back-button" onClick={handleBack}>
+          ← Back
+        </button>
+        <h2>Note #{id}</h2>
+        <textarea className="note-textarea" placeholder="Enter text here..." />
+      </div>
     </Layout>
   );
-};
+}
 
 export default NotePage;

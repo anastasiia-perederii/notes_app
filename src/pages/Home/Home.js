@@ -1,13 +1,34 @@
-import React, { useState } from "react";
-import Layout from "../components/Layout/Layout";
-import NotesTable from "../components/NoteTable";
+import { useState } from "react";
+import Layout from "../../components/Layout/Layout";
+import NoteCard from "../../components/NoteCard/NoteCard";
+import AddNoteForm from "../../components/AddNoteForm/AddNoteForm";
+import "./Home.css";
 
-export default function Home() {
-  const [notes] = useState([{ id: 1, title: "Note 1", date: "2025-05-07" }]);
+function Home() {
+  const [notes, setNotes] = useState([
+    { id: 1, title: "First Note" },
+    { id: 2, title: "Second Note" },
+  ]);
+
+  const handleAddNote = (title) => {
+    const newNote = {
+      id: Date.now(),
+      title,
+    };
+    setNotes([newNote, ...notes]);
+  };
 
   return (
     <Layout>
-      <NotesTable notes={notes} />
+      <h2 className="home-title">All Notes</h2>
+      <AddNoteForm onAdd={handleAddNote} />
+      <div className="notes-grid">
+        {notes.map((note) => (
+          <NoteCard key={note.id} note={note} />
+        ))}
+      </div>
     </Layout>
   );
 }
+
+export default Home;
